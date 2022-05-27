@@ -1,0 +1,16 @@
+//using sort function will give atleast O(nlogn) complexity
+// like this it can be done in O(n) time
+pair<long long, long long> getMinMax(long long a[], int n) {
+    int max=INT_MIN;
+    int min=INT_MAX;
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>max)max=a[i];
+        if(a[i]<min)min=a[i];
+    }
+    return {min,max};
+}
+/* In this method above, the total number of comparisons is 1 + 2(n-2) 
+in the worst case and 1 + n – 2 in the best case.
+The worst case occurs when elements are sorted in descending order 
+and the best case occurs when elements are sorted in ascending order.*/

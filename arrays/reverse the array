@@ -1,4 +1,4 @@
-<-- This will print but not reverse the list -->
+// This will print but not reverse the list 
 
 #include <iostream>
 using namespace std;
@@ -24,7 +24,7 @@ int main() {
 	return 0;
 }
 
-<-- reversing -->
+// reversing 
 
 start =0;end=n-1;
 while(start<end)
