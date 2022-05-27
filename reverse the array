@@ -1,0 +1,37 @@
+<-- This will print but not reverse the list -->
+
+#include <iostream>
+using namespace std;
+
+int main() {
+	int t;
+	cin>>t;
+	while(t--)
+	{
+	    int n;
+	    cin>>n;
+	    int a[n];
+	    for(int i =0;i<n;i++)
+	    {
+	        cin>>a[i];
+	    }
+	    for(int i =n-1;i>=0;i--)
+	    {
+	        cout<<a[i]<<" ";
+	    }
+	    cout<<"\n";
+	}
+	return 0;
+}
+
+<-- reversing -->
+
+start =0;end=n-1;
+while(start<end)
+{
+t=a[start];
+a[start]=a[end];
+a[end]=t;
+start++;end--;
+}
+    
