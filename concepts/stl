@@ -1,0 +1,81 @@
+/*  
+
+pairs :
+    pair<container1,container2> pair_name; // how to declare a pair 
+
+    fuctions: (let pair<int,string> p)
+        p = make_pair(9,"abc"); //will make a pair of a integer and string.
+        // other method p = {2,"abc"}
+        // or pair p(1,"abc")
+
+        use p.first , p.second for acessing first and second element respectively.
+
+        // for copying pairs :
+        pair<int,string> p1;
+        p1 = p; 
+        // will make a copy, p wont change on changing p1.
+        // if &p = p , it is a reference so, if we do p1.first = 3, p will change.
+
+        // p.swap(p1) will swap the pairs
+
+
+vector : dynamic size array // just like arrays they also assign contiguous memory
+    vector<datatype> v;
+
+    funtions :
+        v.push_back(value) // O(1), adds the value to the end of vector
+        v.pop_back() // O(1), will pop off the last value from vector
+        v.size() // O(1), size of vector
+        vector<int> v(10,3) 
+        // vector of size 10 with all 10 values set to 3, but this doesnt mean 
+        //that we cannot change the vector size, it can be increased or decreased stil.
+        
+        vectors can be directly copied unlike arrays
+        vector<int> v2 = v1; // O(n), will create copy of v1 in v2
+        // it is a copy so changing v2 wont change v1
+
+        size() – Returns the number of elements in the vector.
+        max_size() – Returns the maximum number of elements that the vector can hold.
+        capacity() – Returns the size of the storage space currently allocated to the vector expressed as number of elements.
+        resize(n) – Resizes the container so that it contains ‘n’ elements.
+        empty() – Returns whether the container is empty.
+        shrink_to_fit() – Reduces the capacity of the container to fit its size and destroys all elements beyond the capacity.
+        reserve() – Requests that the vector capacity be at least enough to contain n elements.
+        begin() – Returns an iterator pointing to the first element in the vector
+        end() – Returns an iterator pointing to the theoretical element that follows the last element in the vector
+
+    Nesting:
+        vector<pair<int,int>>v = {{1,2},{2,3},{3,4}};
+        // to access 1, we will write v[0].first -> v[0] represents first pair and.first to access first element.
+        
+        v.push_back({x,y}) -> to insert pairs 
+        // v.push_back(make_pair(x,y)) will do the same thing.
+
+        vector<int> v[n] -> n vectors formed, similar to matrix //n fixed(rows) like array
+
+        vector<vector<int>> v -> vector of vector, dynamic 2d array.
+
+
+Iterators : containers like maps and sets donot have any indexing
+            so to access the elements we need iterators
+
+            Pointers like structure. They are primarily used in sequences of numbers, characters etc. 
+            They reduce the complexity and execution time of the program.
+
+            We can perform simple arithmetic on pointers like increment, decrement, add an integer etc.
+            Not all iterators allow these operations, e.g., we cannot decrement a forward-iterator, 
+            or add an integer to a nonrandom-access iterator.
+
+            .begin() points to start of container i.e. a[0]
+            .end() points to next to last of container i.e. a[last_index + 1]
+
+            declaration: container :: iterator it = container_name.begin();
+            example : vector<int> v;
+            vector<int> :: iterator it = v.begin(); // iterator to v
+            cout<< *it; //prints v[0], *(it+1) prints a[1]
+
+            it++ // takes to next iterator
+            it+=1 // takes to next contiguous location
+            // it+=1 will work in case of vectors but not for maps and sets since they donot have contiguous memory
+            // for pairs (*it).first, (it->first) are same
+*/
