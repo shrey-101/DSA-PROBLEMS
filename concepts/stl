@@ -78,4 +78,40 @@ Iterators : containers like maps and sets donot have any indexing
             it+=1 // takes to next contiguous location
             // it+=1 will work in case of vectors but not for maps and sets since they donot have contiguous memory
             // for pairs (*it).first, (it->first) are same
+
+
+maps : stores key-value pairs, they create a mapping between two, key shoud be unique
+    two types: ordered - sorted according to keys (using red-black trees/avl - self balancing bst)
+               // if key is string then they are stored lexiographically
+               unordered - randomly stored (uses hashtable)
+
+    
+    decleration : map< key_datatype, value_datatype> name; unordered_map<int,string> um;
+    example : map<int,string> m;
+
+    // we cannot use complex data structures such as pairs, sets, vectors etc for unordered maps
+    // since in maps the can be internally compared for red black tree but in unordered maps they 
+    // need to have a hash value for hash-table which only exist for basic datatypes and strings.
+
+    for value insertion : m[1]="abc"; // O(log(n))
+                          m[2]="bd";
+                          m[3]="cd";
+                          or m.insert({4,"gfh"});
+                          m["abc"].push_back(12891); // map of string to vector
+    
+    printing[O(nlog(n))]: for ( auto & pr : m ) {cout << pr.first << " "<< pr.second<<" ";}
+
+    m.size() - current size
+    auto it = m.find(value); // returns iterator for val else m.end if not found
+                             // O(log(n))  for ordered map
+                             // O(1) for unordered map
+
+    m.erase(3) - delete key val pair with key 3 // O(log(n)) // O(1) for unordered
+
+multimap: Multimap is an associative container that contains a sorted list of key - value pairs(uses red-black tree),
+          while permitting multiple entries with the same key .
+          It store key value pair in sorted order on the basis of key ( assending / decending ) .
+          Syntax for ascending/decending: multimapschar<char, int, std :: greater<>> M ; //use greater - ascending(default), less - decending
+
+
 */
