@@ -1,0 +1,25 @@
+/* vector<int> v ={2,3,4,5,6};
+
+loop using iterator:
+    vector<int> :: iterator it;
+    for(it = v.begin();it!=v.end();++it)
+    {
+        cout<<(*it)<<" "; // will print all the elements
+    }
+
+range based loop :
+    for(int val : v) // this will directly iterator over elements of vector v
+    {
+        cout<<val<<" ";
+    } // val will contain a copy of v elements so no change in actual elements
+    // by changing val, for using actual values we have to write &val i.e. use reference
+
+auto keyword: will specify that the type of the variable that is being declared
+              will be automatically deducted from its initializer. It'll be useful for
+              iterators as we wont have to specify the container.
+    
+    for(auto &val : v)
+    {
+        cout<<val ;
+    }
+*/
