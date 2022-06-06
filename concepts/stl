@@ -114,4 +114,22 @@ multimap: Multimap is an associative container that contains a sorted list of ke
           Syntax for ascending/decending: multimapschar<char, int, std :: greater<>> M ; //use greater - ascending(default), less - decending
 
 
+sets:   collection of unique elements, uses red-black tree
+
+        declaration : set<datatype> name;
+        // stores data in sorted order
+
+        fuctions: let set<string> s;
+            s.insert("abc") // log(n)
+            s.find("abc") // returns iterator for abc else s.end() // log(n)
+            s.erase("abc") // log(n)
+
+unordered_set : time complexity for insertion, find, and erase O(1).
+                // unsorted // duplicates not allowed
+
+multiset<string>s : duplicates allowed 
+                    s.erase(s.find("abc")) // will erase the only occurence of abc returned as iterator
+                    s.erase("abc") // will erase all occurence
+
+                    
 */
