@@ -1,0 +1,100 @@
+class Solution {
+public:
+    void setZeroes(vector<vector<int>>& matrix)
+    {
+/*      We iterate over the original array and look for zero entries. If we find that an entry at [i, j] is 0, then we need to record somewhere the row i and column j.So, we use two sets, one for the rows and one for the columns.after that we iterate again and if we find the row or col present in the set then we set the cells to 0. */
+        
+//         T.C. = O(mxn), S.C. = O(m+n)
+        
+//         unordered_set<int> c,r;
+//         for(int i=0;i<matrix.size();i++)
+//         {
+//             for(int j=0;j<matrix[i].size();j++)
+//             {
+//                 if(matrix[i][j]==0)
+//                 {
+//                     c.insert(j);
+//                     r.insert(i);
+//                 }
+//             }
+//         }
+     
+//         for(int i=0;i<matrix.size();i++)
+//         {
+//             cout<<'[';
+//             for(int j=0;j<matrix[i].size();j++)
+//             {
+//                 if(c.count(j)||r.count(i))
+//                         matrix[i][j]=0;
+//             }
+//         }
+        
+/*       APPROACH II
+We handle cases seperately.
+
+-Check the first row and column for pre-existing 0.
+If found we mark that row or column as true
+-Now we work upon the remaining matrix.
+First we look for the cell that has 0 in it.
+Then proceed with the working i.e. marking the cell as 0.
+-Now work upon the checked first row and column and update their values.
+Note: Updating before hand gives WA */
+        
+// T.C. = O(mn), S.C. = O(1)
+        
+//          bool RowZero = false;
+//         bool ColZero = false;
+//         for (int i = 0; i < matrix[0].size(); i++) //check the first row
+//         { 
+//             if (matrix[0][i] == 0) 
+//             {
+//                 RowZero = true;
+//                 break;
+//             } 
+//         }
+//         for (int i = 0; i < matrix.size(); i++) //check the first column
+//         { 
+//             if (matrix[i][0] == 0) 
+//             {
+//                 ColZero = true;
+//                 break;
+//             } 
+//         }
+//         for (int i = 1; i < matrix.size(); i++) //check except the first row and column
+//         { 
+//             for (int j = 1; j < matrix[0].size(); j++) 
+//             {    
+//                 if (matrix[i][j] == 0) 
+//                 {
+//                     matrix[i][0] = 0;
+//                     matrix[0][j] = 0;
+//                 }        
+//             }
+//         }
+//         for (int i = 1; i < matrix.size(); i++) //process except the first row and column 
+//         {
+//            for (int j = 1; j < matrix[0].size(); j++)
+//            {
+//                if (matrix[i][0] == 0 || matrix[0][j] == 0)
+//                {
+//                    matrix[i][j] = 0;
+           
+//                }
+//            }
+//         }
+//         if(RowZero) //handle the first row
+//         { 
+//             for (int i = 0; i < matrix[0].size(); i++) 
+//             {
+//                 matrix[0][i] = 0;
+//             }
+//         }
+//         if (ColZero) //handle the first column
+//         { 
+//             for (int i = 0; i < matrix.size(); i++)
+//             {
+//                 matrix[i][0] = 0;
+//             }
+//         }
+
+};
