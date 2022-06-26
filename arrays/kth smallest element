@@ -12,6 +12,7 @@ class Solution{
     // sort function have complexity around O(NlogN)
     
     // method 2: using priority queue from STL
+    //  TC: O(NlogK)
     int kthSmallest(int arr[], int l, int r, int k) {
         priority_queue<long long,vector<long long>,greater<int>> q;
         for(int i=l;i<=r;i++)
