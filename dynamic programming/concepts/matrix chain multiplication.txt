@@ -4,8 +4,8 @@ to decide in which order to perform the multiplications.
 
 problem statement: https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/
 
-A       B       C       D
-2X5     5X20   20X10   10X13
+                        A       B       C       D
+                        2X5     5X20   20X10   10X13
 
 FIND : A X B X C X D -> COST = MINIMUM (STEPS OF MULTIPLICATION)
 eg: (AxB)xCxD or AxBxCxD or Ax((BxC)xD) whatever takes minimum steps is the answer
@@ -26,26 +26,72 @@ a3 = 30 x 10
 a4 = 10 x 30
 Ai = arr[i-1] x arr[i]
 
-                          AxBxCxD
-                      /            \
-                Ax(BxCxD)          (AxB)(CxD) -> SIMILARLY OTHER POSSIBILITIES
-               /        \           /       \
-    MIN COST OF A      BxCxD        AxB     CxD
-                      /      \
-                     B        CxD
+                                                    AxBxCxD
+                                                /            \
+                                            Ax(BxCxD)          (AxB)(CxD) -> SIMILARLY OTHER POSSIBILITIES
+                                        /        \           /       \
+                                MIN COST OF A      BxCxD        AxB     CxD
+                                                /      \
+                                                B        CxD
 
 END MAI SBKA MINIMUM LETE JAENGE
 
-=>mcm function : int solve(arr[],int i,int j)
+MCM FUNCTION: int solve(arr[],int i,int j)
         i -> right se start hoga , j -> left se start hoga
 
         Ai = arr[i-1] x arr[i] 
         if i=0 -> i-1 = -1 (not valid)
         for j => j = size - 1 (4) -> n-1 = 3 (valid)
 
-    therefore, intilalize i=1 & j= size -1
+therefore, intilalize i=1 & j= size -1
 
-=> base condition : if(i>=j) return 0; (i==j size 1 array to i-1[-1] nhi milega)
+BASE CONDITION: if(i>=j) return 0; (i==j size 1 array to i-1[-1] nhi milega)
 
+BREAKING: if k = j : 1> one group will be i to k and other will be k+1 to j,
+                     which will be empty since there is no k+1, so we can keep
+                     the loop till j-1 so gropus will be i to k and k+1 to j 
+
+                     k=i -> k=j-1 => i to k and k+1 to j 
+
+                     2> or we can make groups from i to k-1 and k to j this way 
+                     too their will be no empty sets.
+
+                     k=i+1 -> k=j => i to k-1 and k to j 
+
+              
+                                            40  20  30  10  30
+                                                i   k       j
+                                        /                       \
+                                for(i to k)                    for(k+1 to j)
+                            40x20  20x30 matrices           30x10   10x30 matrices
+                            cost : 40x20x30                 cost : 30x10x30
+                                        \                       /
+                                    matrix: 40x30        matrix: 30x10
+                                                    |
+                                                40x30x30 = extra cost for (AB)x(CD)
+                                                        = arr[i-1]*arr[k]*arr[j]
+
+=> the sum of all these cost will be temperary answer
+
+int solve(int arr[],int i,int j) // RECURSIVE
+{
+    if(i>=j)return 0;
+    int minimum = INT_MAX;
+    for(int k=i;k<j;k++)
+    {
+        int temp = solve(arr,i,k) + solve(arr,k+1,j) + arr[i-1]*arr[k]*arr[j];
+        minimum = min(minimum,temp);
+    }
+    return minimum;
+}
+
+MEMOIZATION:
+
+int static t[1001][1001] 
+memset(t,-1,sizeof(t))
+in SOLVE function:
+        if(t[i][j]!=-1) return t[i][j];
+nahi to poora loop wagera chalega and minimum store karlo
+        t[i][j] = minimum;
 
 
