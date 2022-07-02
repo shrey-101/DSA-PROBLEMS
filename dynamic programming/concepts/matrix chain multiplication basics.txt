@@ -1,0 +1,32 @@
+Identification:
+String/Array ko break karna hoga
+
+[]  []  []  []  []  []  []  -> array/String
+i                       j
+    k --->  k ko i and j ke bich move karna hai
+    jaha k hoga waha break karenge 
+    : i to k and k+1 to j
+
+solve parts recursively and repeat as we keep recieving temperorary answers from
+function calls and at the end we calculate final ans from these temp answers.
+eg : minimum/maximum of all answers returned from function calls
+
+CODE FORMAT :
+
+base condition - think of the invalid input 
+
+function : int solve(int arr[], int i, int j)
+
+            i-> left mai hoga array ke, j -> right mai hoga array ke
+
+hrr k pe break karne hai :
+        for(int k=i;k<j;k++)
+        {
+            // calculate temp ans
+            temp_ans = solve (arr,i,k) +(operator depend on ques) solve(arr,k+1,j)
+            final_ans = some_function(temp_ans);
+        }
+
+return final_ans;
+
+
