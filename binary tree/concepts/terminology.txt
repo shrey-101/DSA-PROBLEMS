@@ -1,0 +1,41 @@
+Tree -> collection of nodes connected by edges
+        for n nodes their are n-1 edges.
+
+Subtree -> subset of the tree i.e. tree under any node is a sub tree.
+
+Path −> path refers to the sequence of nodes along the edges of a tree.
+
+Root -> first node of the tree.
+
+Parent −> any node except the root node has one edge upward to a node 
+          called parent.
+
+Child −> the node below a given node connected by its edge downward is 
+         called its child node.
+
+Siblings -> same parent.
+
+Decendant -> all nodes under one node i.e. all nodes reachable from a node.
+
+Ancestors -> all the nodes along the path from that node to root node.
+
+Degree of node -> no. of children a node is having.
+
+Degree of a tree -> it is the maximum degree of a node among all the nodes 
+                    in the tree.
+
+Leaf -> the node which does not have any child node is called the leaf node.
+
+Level of a node -> the count of edges on the path from the root node to that 
+                   node. The root node has level 0.
+
+Height of the Tree -> the height of a tree is the length of the longest path 
+                      from the root of the tree to a leaf node of the tree.
+
+
+Height of a node -> the height of a node can be defined as the length of the 
+                    longest path from the node to a leaf node of the tree.
+
+Forest -> collection of tree is called a forest.
+
+Binary Tree -> a tree of degree 2 i.e. at max 2 children - 0,1,2.
