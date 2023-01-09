@@ -1,0 +1,40 @@
+// https://leetcode.com/problems/majority-element/
+
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+/* solution 1-
+Hash Table:
+Count the number of appearances for each distinct number in nums, once we see a number appear more than n / 2 times, it is the majority element.
+*/
+       
+       unordered_map<long, long> c;
+        for (auto n : nums) {
+            if (++c[n] > nums.size() / 2) {
+                return n;
+            }
+        }
+/* solution 2-
+Sorting:
+Since the majority element appears more than n / 2 times, the n / 2-th element in the sorted nums must be the majority element. In this case, a partial sort by nth_element is enough.
+*/
+    nth_element(nums.begin(), nums.begin() + nums.size() / 2, nums.end());
+        return nums[nums.size() / 2];
+        return 0;
+    }
+/* solution 3-
+moore's voting algorithim:
+since majority element always exist, so it will be [N/2]+x times in the array. Now, we can say that count of minority elements and majority elements are equal up to a certain point of time in the array. So when we traverse through the array we try to keep track of the count of elements and which element we are tracking. Since the majority element appears more than N/2 times, we can say that at some point in array traversal we find the majority element. */
+    int count=0,number=0;
+    for(auto &x:nums)
+    {
+        if(count==0)
+        {
+            number=x;
+        }
+        if(number==x)count++;
+        else count--;
+    }
+    return number;
+    }
+};
